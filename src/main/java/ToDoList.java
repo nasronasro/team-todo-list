@@ -1,30 +1,46 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class ToDoList {
-	private List<String> todos;
-	
+	private ArrayList<String> todos;
+	private int id;
 	public ToDoList() {
-		todos = new ArrayList();
+		todos = new ArrayList<>();
+		setId(0);
 	}
 	
 	public void AddTask(String task) {
 		todos.add(task);
+		id++;
+		System.out.println("ajout de la task : " + task);
 	}
 	
-	public List<String> GetTasks() {
+	public ArrayList<String> GetTasks() {
 		return todos;
 	}
 	
-	public void RemoveTask(String task) {
-		todos.remove(task);
-	}
+	public void removeTask(int id) {
+        if (id >= 0 && id < todos.size()) {
+            todos.remove(id); 
+            System.out.println(" suppression ac succes ");
+        } else {
+            System.out.println("id eroné");
+        }
+    }
 	
 	public void UpdateTask(int id, String newTask) {
         if (id >= 0 && id < todos.size()) {
             todos.set(id, newTask);
+            System.out.println(" task updated :) ");
         } else {
-            System.out.println("ID invalide : " + id);
+            System.out.println(" verfier l'id demander : " + id);
         }
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
