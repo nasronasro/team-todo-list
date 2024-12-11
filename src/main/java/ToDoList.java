@@ -15,4 +15,16 @@ public class ToDoList {
 	public List<String> GetTasks() {
 		return todos;
 	}
+	
+	public void RemoveTask(String task) {
+		todos.remove(task);
+	}
+	
+	public void UpdateTask(int id, String newTask) {
+        if (id >= 0 && id < todos.size()) {
+            todos.set(id, newTask);
+        } else {
+            System.out.println("ID invalide : " + id);
+        }
+    }
 }
